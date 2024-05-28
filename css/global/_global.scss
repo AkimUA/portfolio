@@ -21,6 +21,36 @@ body {
   font-style: normal;
   font-size: 22px;
   color: var(--textColor1);
+
+  .mask {
+    width: 100%;
+    height: 100%;
+    background: var(--purple);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader {
+    font-family: "Nunito";
+    font-size: 30px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .loader.show {
+    opacity: 1;
+  }
+
+  .hide {
+    opacity: 0;
+  }
+
   @media screen and (max-width: 767px) {
     &.lock {
       overflow: hidden;
@@ -29,6 +59,19 @@ body {
   li {
     color: var(--textColor1);
   }
+}
+header,
+main {
+  opacity: 0;
+  position: relative;
+  top: -100px;
+  transition: all 0.5s ease;
+}
+
+header.visible,
+main.visible {
+  opacity: 1;
+  top: 0;
 }
 body.dark {
   --background: var(--bgDark);

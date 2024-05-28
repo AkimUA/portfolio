@@ -8,15 +8,10 @@ const toggleTheme = () => {
     root.classList.add("dark");
   }
 
-  // Перемикання CSS-змінних
   if (root.classList.contains("light")) {
-    // root.style.setProperty("--background", "var(--bgLight)");
-    // root.style.setProperty("--textColor1", "var(--textLight)");
     element.querySelector(".text svg path").setAttribute("fill", "black");
     element.style.background = "none";
   } else if (root.classList.contains("dark")) {
-    // root.style.setProperty("--background", "var(--bgDark)");
-    // root.style.setProperty("--textColor1", "var(--textDark)");
     element.querySelector(".text svg path").setAttribute("fill", "white");
   }
 };
@@ -29,3 +24,36 @@ function menuToggle() {
   let body = document.querySelector("body");
   body.classList.toggle("lock");
 }
+
+let mask = document.querySelector(".mask");
+let loader = document.querySelector(".loader");
+let header = document.querySelector("header");
+let main = document.querySelector("main");
+let repeatCount = 0;
+let repeatLimit = 2;
+
+window.addEventListener("load", () => {
+  function showLoadingText() {
+    if (repeatCount < repeatLimit) {
+      loader.textContent =
+        repeatCount === 0
+          ? "Zadrot gaming presentation"
+          : "Made in Dnipro, Ukraine";
+      loader.classList.add("show");
+      setTimeout(() => {
+        loader.classList.remove("show");
+        setTimeout(showLoadingText, 1000);
+      }, 2000);
+      repeatCount++;
+    } else {
+      mask.classList.add("hide");
+      setTimeout(() => {
+        mask.remove();
+        header.classList.add("visible");
+        main.classList.add("visible");
+      }, 300);
+    }
+  }
+
+  showLoadingText();
+});
