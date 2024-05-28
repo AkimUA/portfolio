@@ -1,0 +1,38 @@
+$colors: (
+  textColor: #ffffffbb,
+  green: #55e5a4,
+  white: #fff,
+  bg: #151c25,
+  textBlack: black,
+  purple: rgb(138, 19, 161),
+);
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name + ""}: #{$color};
+  }
+}
+
+.bg- {
+  @each $name, $color in $colors {
+    &#{$name + ""} {
+      background-color: #{$color} !important;
+    }
+  }
+}
+
+.text- {
+  @each $name, $color in $colors {
+    &#{$name + ""} {
+      color: #{$color} !important;
+    }
+  }
+}
+
+.border- {
+  @each $name, $color in $colors {
+    &#{$name + ""} {
+      border-color: #{$color} !important;
+    }
+  }
+}
