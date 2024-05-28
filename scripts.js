@@ -57,3 +57,28 @@ window.addEventListener("load", () => {
 
   showLoadingText();
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  window.scrollTo(0, 0);
+  let navLinks = document.querySelectorAll("header .navPanel ul li a");
+
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      let anchor = this.getAttribute("href");
+      let targetOffset =
+        anchor === "#top" ? 0 : document.querySelector(anchor).offsetTop - 90;
+
+      window.scrollTo({
+        top: targetOffset,
+        behavior: "smooth",
+      });
+
+      var header = document.querySelector("header");
+      header.classList.remove("active");
+
+      var body = document.querySelector("body");
+      body.classList.remove("lock");
+    });
+  });
+});
