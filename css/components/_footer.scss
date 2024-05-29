@@ -1,4 +1,26 @@
 footer {
+  position: relative;
+  .ontop {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--purple);
+    transition: all 1s ease;
+    z-index: 20;
+    border: none;
+    box-shadow: 0 0 25px rgba(143, 65, 104, 0.7);
+    &:hover {
+      transform: rotate(360deg);
+    }
+    @media screen and (min-width: 767px) {
+      display: block;
+    }
+  }
   .footerContainer {
     margin-top: 100px;
     display: flex;

@@ -10,7 +10,6 @@ const toggleTheme = () => {
 
   if (root.classList.contains("light")) {
     element.querySelector(".text svg path").setAttribute("fill", "black");
-    element.style.background = "none";
   } else if (root.classList.contains("dark")) {
     element.querySelector(".text svg path").setAttribute("fill", "white");
   }
@@ -81,4 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       body.classList.remove("lock");
     });
   });
+});
+window.addEventListener("beforeunload", function () {
+  window.scrollTo(0, 0);
 });
