@@ -195,6 +195,9 @@ body.light footer .ontop {
 body.light footer p::after {
   background: black;
 }
+body.light footer a {
+  color: black;
+}
 @media screen and (min-width: 1024px) {
   body.light footer a:hover {
     color: var(--purple);
