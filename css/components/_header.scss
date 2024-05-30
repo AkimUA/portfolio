@@ -1,69 +1,113 @@
 header {
-  display: block;
-  width: 100%;
-  @media screen and (max-width: 767px) {
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding-top: 30px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: var(--background);
 
-    .navPanel {
-      display: flex;
-      @media screen and (max-width: 767px) {
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        visibility: hidden;
-        opacity: 0;
-        transform: translateY(-100%);
-        transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
-      }
-      ul {
+  .wrapperContent {
+    .innerContent {
+      height: 110px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      nav {
         display: flex;
-        gap: 40px;
+        width: 100%;
+        height: inherit;
 
-        li {
-          padding: 13px 0px;
-          list-style-type: none;
-          cursor: pointer;
-          letter-spacing: 3px;
-          transition: all 0.3s ease;
-          will-change: transform;
-          font-family: "Nunito";
-          font-size: 18px;
-          &:before {
-            content: "";
-            position: absolute;
+        .navPanel {
+          display: flex;
+          width: 100%;
+          height: inherit;
+
+          ul {
+            display: flex;
             width: 100%;
-            height: 2px;
-            border-radius: 5px;
-            transform: scale(0);
-            transition: all 0.5s ease;
-            bottom: 0;
-            left: 0;
-          }
-          &:hover::before {
-            transform: scale(1);
-          }
+            height: inherit;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
 
-          a {
+            li {
+              display: block;
+
+              a {
+                display: block;
+                letter-spacing: 3px;
+                transition: all 0.3s ease;
+                will-change: transform;
+                font-family: "Nunito";
+                font-size: 18px;
+
+                padding: 13px 0px;
+
+                &:before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 2px;
+                  border-radius: 5px;
+                  transform: scale(0);
+                  transition: all 0.5s ease;
+                  bottom: 0;
+                  left: 0;
+                }
+                &:hover {
+                  &:before {
+                    transform: scale(1);
+                  }
+                }
+              }
+            }
           }
-        }
-        @media screen and (max-width: 767px) {
-          align-items: center;
-          justify-content: center;
         }
       }
     }
-    @media screen and (max-width: 766px) {
-      justify-content: end;
+
+    @media screen and (max-width: 1023px) {
+      nav {
+        position: fixed !important;
+        display: flex !important;
+        width: 100%;
+        max-width: 100%;
+        height: calc(100% - 110px);
+        background: var(--background);
+        top: 110px;
+        left: 0;
+        transform: translateY(-40px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+
+        .navPanel {
+          display: block;
+          margin: auto;
+          padding: 12px;
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+
+            li {
+              display: block;
+
+              a {
+                display: block;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
     }
+
     .menuToggle {
       position: absolute;
-      top: 30px;
+      top: 50%;
+      transform: translateY(-50%);
       right: 20px;
       display: block;
       width: 50px;
@@ -79,7 +123,6 @@ header {
         position: absolute;
         width: 80%;
         height: 7px;
-        background: var(--purple);
         border-radius: 25px;
         top: 50%;
         left: 50%;
@@ -95,61 +138,60 @@ header {
         content: "";
         margin-top: 14px;
       }
-      @media screen and (min-width: 767px) {
+      @media screen and (min-width: 1024px) {
         display: none;
       }
     }
-  }
-  .dayNight {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 30px;
-    cursor: pointer;
-    background: none;
-    border: 0;
-    transition: all 0.5s ease;
-    will-change: transform;
-    &:hover {
-      scale: (1.2);
+
+    .dayNight {
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      background: none;
+      border: 0;
+      transition: all 0.5s ease;
+      will-change: transform;
+
+      @media screen and (max-width: 1023px) {
+        right: unset;
+        left: 40px;
+      }
+
+      &:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
     }
-    @media screen and (max-width: 766px) {
-      display: none;
-    }
   }
+
   &.active {
-    height: 100vh;
-    background: var(--green);
-    transition: height 0.5s ease, background 0.5s ease;
-    transform: translateY(0);
-    @media screen and (max-width: 767px) {
-      .navPanel {
-        height: 100vh;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        transition: all 0.5s ease;
-        ul {
-          flex-direction: column;
-          a {
-            color: var(--purple);
+    .wrapperContent {
+      .innerContent {
+        @media screen and (max-width: 1023px) {
+          nav {
+            opacity: 0.9;
+            visibility: visible;
+            transform: translateY(0px);
+          }
+
+          .menuToggle {
+            span {
+              width: 0;
+            }
+            &::before {
+              content: "";
+              margin-top: 0;
+              transform: translate(-50%, -50%) rotate(45deg);
+            }
+            &::after {
+              content: "";
+              margin-top: 0;
+              transform: translate(-50%, -50%) rotate(-45deg);
+            }
           }
         }
-      }
-    }
-    .menuToggle {
-      span {
-        width: 0;
-      }
-      &::before {
-        content: "";
-        margin-top: 0;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-      &::after {
-        content: "";
-        margin-top: 0;
-        transform: translate(-50%, -50%) rotate(-45deg);
       }
     }
   }

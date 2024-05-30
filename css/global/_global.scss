@@ -76,11 +76,16 @@ main.visible {
 body.dark {
   --background: var(--bgDark);
   --textColor1: var(--textDark);
+  .menuToggle {
+    &:before,
+    &:after,
+    span {
+      background: var(--green);
+    }
+  }
   h2,
   h3 {
-    background: linear-gradient(to top, #82be72, #f1f1f1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--green);
   }
   .frontend img {
     background-color: rgb(37, 51, 70);
@@ -93,7 +98,7 @@ body.dark {
         color: var(--green);
       }
     }
-    li {
+    a {
       color: var(--white);
       &::before {
         background: #fff;
@@ -134,10 +139,32 @@ body.dark {
     width: 100%;
     border-bottom: 1px solid #55e5a4;
   }
+  .ontop {
+    box-shadow: 0 0 25px rgba(58, 163, 37, 0.7);
+    background: var(--green);
+  }
+}
+body.dark::-webkit-scrollbar {
+  width: 20px;
+}
+body.dark::-webkit-scrollbar-track {
+  background: rgb(184, 187, 235);
+}
+body.dark::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border-radius: 8px;
+  border: 2px solid green;
 }
 body.light {
   --background: var(--bgLight);
   --textColor1: var(--textLight);
+  .menuToggle {
+    &:before,
+    &:after,
+    span {
+      background: var(--purple);
+    }
+  }
   h2,
   h3 {
     background: linear-gradient(to bottom, #1b0202, #3f0909);
@@ -154,7 +181,7 @@ body.light {
         color: var(--purple);
       }
     }
-    li {
+    a {
       color: black;
       &::before {
         background: black;
@@ -170,6 +197,12 @@ body.light {
         color: var(--bg);
         border: 1px solid rgba(115, 67, 160, 0.952);
       }
+    }
+  }
+  footer {
+    .ontop {
+      box-shadow: 0 0 25px rgba(143, 65, 104, 0.7);
+      background: var(--purple);
     }
   }
   footer p {
@@ -200,16 +233,16 @@ body.light {
     border-bottom: 1px solid var(--purple);
   }
 }
-::-webkit-scrollbar {
+body.light::-webkit-scrollbar {
   width: 20px;
 }
-::-webkit-scrollbar-track {
+body.light::-webkit-scrollbar-track {
   background: rgb(184, 187, 235);
 }
-::-webkit-scrollbar-thumb {
-  background: var(--green);
+body.light::-webkit-scrollbar-thumb {
+  background: var(--purple);
   border-radius: 8px;
-  border: 2px solid green;
+  border: 2px solid rgb(80, 11, 80);
 }
 section,
 div,

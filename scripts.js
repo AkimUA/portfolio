@@ -59,7 +59,9 @@ window.addEventListener("load", () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   window.scrollTo(0, 0);
-  let navLinks = document.querySelectorAll("header .navPanel ul li a");
+  let navLinks = document.querySelectorAll(
+    "header .navPanel ul li a, footer .footerContainer ul li a"
+  );
 
   navLinks.forEach(function (link) {
     link.addEventListener("click", function (e) {
