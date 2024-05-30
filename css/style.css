@@ -493,8 +493,10 @@ header .wrapperContent .dayNight {
     left: 40px;
   }
 }
-header .wrapperContent .dayNight:hover {
-  transform: translateY(-50%) scale(1.2);
+@media screen and (min-width: 1023px) {
+  header .wrapperContent .dayNight:hover {
+    transform: translateY(-50%) scale(1.2);
+  }
 }
 @media screen and (max-width: 1023px) {
   header.active .wrapperContent .innerContent nav {

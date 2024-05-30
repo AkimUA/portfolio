@@ -160,8 +160,10 @@ header {
         left: 40px;
       }
 
-      &:hover {
-        transform: translateY(-50%) scale(1.2);
+      @media screen and (min-width: 1023px) {
+        &:hover {
+          transform: translateY(-50%) scale(1.2);
+        }
       }
     }
   }
