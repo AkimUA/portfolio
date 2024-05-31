@@ -107,7 +107,9 @@ let scrollMenu = anim(500);
 
 document.addEventListener("DOMContentLoaded", function () {
   [].forEach.call(
-    document.querySelectorAll("header .navPanel ul li a"),
+    document.querySelectorAll(
+      "header .navPanel ul li a, footer .footerContainer ul li a "
+    ),
     function (e) {
       e.addEventListener("click", function (event) {
         event.preventDefault();
