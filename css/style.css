@@ -32,12 +32,19 @@ body .mask {
   align-items: center;
   justify-content: center;
 }
-body .loader {
+body .mask .loader {
   font-family: "Nunito";
   font-size: 30px;
   color: white;
   opacity: 0;
   transition: opacity 0.5s ease;
+  padding: 0 10px 0 10px;
+}
+@media screen and (max-width: 500px) {
+  body .mask .loader {
+    font-size: 24px;
+    text-align: center;
+  }
 }
 body .loader.show {
   opacity: 1;
