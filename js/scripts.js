@@ -129,3 +129,14 @@ window.addEventListener("beforeunload", function () {
 document.querySelector(".ontop").addEventListener("click", function (e) {
   scrollMenu("body");
 });
+document.querySelectorAll(".buttonResume").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    const link = document.createElement("a");
+    link.href = "porfolio/Developer Resume.pdf";
+    link.download = "resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
