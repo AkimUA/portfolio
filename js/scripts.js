@@ -133,7 +133,7 @@ document.querySelectorAll(".buttonResume").forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
     const link = document.createElement("a");
-    link.href = "porfolio/Developer Resume.pdf";
+    link.href = "Developer Resume.pdf";
     link.download = "resume.pdf";
     document.body.appendChild(link);
     link.click();
