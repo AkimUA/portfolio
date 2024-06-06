@@ -79,13 +79,21 @@ main.visible {
   top: 0;
 }
 body.dark {
-  --background: var(--bgDark);
-  --textColor1: var(--textDark);
+  background-color: var(--bgDark);
+  color: var(--textDark);
   .menuToggle {
     &:before,
     &:after,
     span {
       background: var(--green);
+    }
+  }
+  header {
+    background: var(--bgDark);
+    @media screen and (max-width: 1023px) {
+      nav {
+        background: var(--bg);
+      }
     }
   }
   h2,
@@ -161,13 +169,21 @@ body.dark::-webkit-scrollbar-thumb {
   border: 2px solid green;
 }
 body.light {
-  --background: var(--bgLight);
-  --textColor1: var(--textLight);
+  background-color: var(--bgLight);
+  color: var(--textLight);
   .menuToggle {
     &:before,
     &:after,
     span {
       background: var(--purple);
+    }
+  }
+  header {
+    background: var(--bgLight);
+    @media screen and (max-width: 1023px) {
+      nav {
+        background: var(--bgLight);
+      }
     }
   }
   h2,

@@ -76,12 +76,20 @@ main.visible {
 }
 
 body.dark {
-  --background: var(--bgDark);
-  --textColor1: var(--textDark);
+  background-color: var(--bgDark);
+  color: var(--textDark);
 }
 body.dark .menuToggle:before, body.dark .menuToggle:after,
 body.dark .menuToggle span {
   background: var(--green);
+}
+body.dark header {
+  background: var(--bgDark);
+}
+@media screen and (max-width: 1023px) {
+  body.dark header nav {
+    background: var(--bg);
+  }
 }
 body.dark h2,
 body.dark h3 {
@@ -156,12 +164,20 @@ body.dark::-webkit-scrollbar-thumb {
 }
 
 body.light {
-  --background: var(--bgLight);
-  --textColor1: var(--textLight);
+  background-color: var(--bgLight);
+  color: var(--textLight);
 }
 body.light .menuToggle:before, body.light .menuToggle:after,
 body.light .menuToggle span {
   background: var(--purple);
+}
+body.light header {
+  background: var(--bgLight);
+}
+@media screen and (max-width: 1023px) {
+  body.light header nav {
+    background: var(--bgLight);
+  }
 }
 body.light h2,
 body.light h3 {
@@ -295,7 +311,11 @@ footer {
   --white: #fff;
   --bg: #151c25;
   --textBlack: black;
-  --purple: rgb(138, 19, 161);
+  --purple: #8a13a1;
+  --bgDark: #151c25;
+  --textDark: white;
+  --bgLight: rgba(212, 182, 241, 0.9529411765);
+  --textLight: black;
 }
 
 .bg-textColor {
@@ -314,7 +334,19 @@ footer {
   background-color: black !important;
 }
 .bg-purple {
-  background-color: rgb(138, 19, 161) !important;
+  background-color: #8a13a1 !important;
+}
+.bg-bgDark {
+  background-color: #151c25 !important;
+}
+.bg-textDark {
+  background-color: white !important;
+}
+.bg-bgLight {
+  background-color: rgba(212, 182, 241, 0.9529411765) !important;
+}
+.bg-textLight {
+  background-color: black !important;
 }
 
 .text-textColor {
@@ -333,7 +365,19 @@ footer {
   color: black !important;
 }
 .text-purple {
-  color: rgb(138, 19, 161) !important;
+  color: #8a13a1 !important;
+}
+.text-bgDark {
+  color: #151c25 !important;
+}
+.text-textDark {
+  color: white !important;
+}
+.text-bgLight {
+  color: rgba(212, 182, 241, 0.9529411765) !important;
+}
+.text-textLight {
+  color: black !important;
 }
 
 .border-textColor {
@@ -352,7 +396,19 @@ footer {
   border-color: black !important;
 }
 .border-purple {
-  border-color: rgb(138, 19, 161) !important;
+  border-color: #8a13a1 !important;
+}
+.border-bgDark {
+  border-color: #151c25 !important;
+}
+.border-textDark {
+  border-color: white !important;
+}
+.border-bgLight {
+  border-color: rgba(212, 182, 241, 0.9529411765) !important;
+}
+.border-textLight {
+  border-color: black !important;
 }
 
 header {
@@ -360,7 +416,6 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
-  background: var(--background);
 }
 header .wrapperContent .innerContent {
   height: 110px;
@@ -418,7 +473,6 @@ header .wrapperContent .innerContent {
     width: 100%;
     max-width: 100%;
     height: calc(100% - 110px);
-    background: var(--background);
     top: 110px;
     left: 0;
     transform: translateY(-40px);
@@ -974,13 +1028,4 @@ footer p::after {
   height: 1px;
   background: #fff;
   display: block;
-}
-
-:root {
-  --bgDark: #151c25;
-  --textDark: white;
-  --bgLight: #d4b6f1f3;
-  --textLight: black;
-  --textColor1: var(--textDark);
-  --background: var(--bgDark);
 }/*# sourceMappingURL=style.css.map */

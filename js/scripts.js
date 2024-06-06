@@ -140,3 +140,12 @@ document.querySelectorAll(".buttonResume").forEach((button) => {
     document.body.removeChild(link);
   });
 });
+window.addEventListener("scroll", function () {
+  const element = document.querySelector("header");
+  const scrollPosition = window.scrollY;
+
+  let opacity = 1 - scrollPosition / 1000;
+  if (opacity < 0.8) opacity = 0.8;
+
+  element.style.opacity = opacity;
+});
