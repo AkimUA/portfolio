@@ -81,6 +81,7 @@ window.addEventListener("load", () => {
         mask.remove();
         header.classList.add("visible");
         main.classList.add("visible");
+        document.body.style.overflow = "auto";
       }, 300);
     }
   }
